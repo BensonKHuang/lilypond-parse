@@ -14,19 +14,19 @@ app.use(bodyParser.json())
 
 //ROUTES
 
-app.get('/', function(req, res){
-	res.sent("Hi I am a chatbot")
+app.get('/', function(req, res) {
+	res.send("Hi I am a chatbot")
 })
 
 //Facebook
 
-app.get('/webhook/', function(req, res){
-	if(req.query['hub.verify_token'] === "andytseng"){
+app.get('/webhook/', function(req, res) {
+	if (req.query['hub.verify_token'] === "blondiebytes") {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send("Wrong token")
 })
 
-app.listen(app.get('port'), function(){
-	console.log("runnning: port")
+app.listen(app.get('port'), function() {
+	console.log("running: port")
 })
